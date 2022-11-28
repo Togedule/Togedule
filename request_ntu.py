@@ -1,8 +1,8 @@
 import requests
-import pandas as pd
-from bs4 import BeautifulSoup
+#import pandas as pd
+#from bs4 import BeautifulSoup
+from course_analysis import analysis, classroom, collect_moreinfo
 
-main_url = 'https://nol.ntu.edu.tw/nol/coursesearch/index.php'
 login_url = 'https://web2.cc.ntu.edu.tw/p/s/login2/p1.php'
 secure_url = 'https://if177.aca.ntu.edu.tw/qcaureg/index.asp'
 
@@ -25,17 +25,20 @@ login = record.get('https://if177.aca.ntu.edu.tw/qcaureg/index.asp', headers=hea
 login.encoding = "big5"
 print(login.text)
 
-filename = str(username) + "_courseinfo.txt"
+htmlfile = "./webarchive/" + str(username) + "_courseinfo.html"
 try:
-    with open(filename, 'x', encoding='utf-8') as write:
+    with open(htmlfile, 'x', encoding='big5') as write:
         write.writelines(login.text)
 except:
-    with open(filename, 'w', encoding='utf-8') as write:
+    with open(htmlfile, 'w', encoding='big5') as write:
         write.writelines(login.text)
 else:
     pass
 finally:
     pass
+
+analysis(username)
+collect_moreinfo(username)
 
 '''
 11/18 筆記
