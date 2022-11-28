@@ -57,6 +57,7 @@ def classroom(course_id, courseclass, semester, account):
     record = requests.session()
     visit = record.get(table_url, headers=headers, params=payload)
     visit.encoding="utf-8"
+    print(len(visit.text))
     soup = BeautifulSoup(visit.text, "lxml")
     bigtable = soup.findAll("table", {
         "cellspacing":0, 
@@ -70,11 +71,14 @@ def classroom(course_id, courseclass, semester, account):
     info = smalltable.select("td")
     #台大課程網的顯示方式很討厭，所有元件都沒有賦予 id 或 class，只好硬幹
     
+    
     seperate = []
-    for i in range(0,len(info),2):
+    for i in range(0,28,2): #原本是 len(info)，但考慮到簡體字打不上去，所以不要製造完整的暫存檔
         try:
             seperate.append([info[i].text.strip(), info[i+1].text.strip().replace(u'\xa0', u' ').replace(u'\xfc', u' ')])
         except:
+            seperate.append(['',''])
+        finally:
             pass
         # 幹掉 big5 無法處理的特殊字元 \xa0 \xfc，以及剩下空格，再有其他的就算了，反正後面內容不重要
     temp_tablefile = "./webarchive/" + str(account) + "_singleinfo.csv"
@@ -121,12 +125,14 @@ def collect_moreinfo(account):
             courseclass.append(rows[i][rows[0].index('班次')])
             semester.append(check_semester())
         database.close() #因為等一下 classroom 函數會編輯這個檔案，所以先關掉
-        
-        for i in range(len(courseid)):
-            classroom(courseid[i], courseclass[i], semester[i], account)
         print(courseid)
-        print(courseclass)
-        print(semester)
+        #print(courseclass)
+        #print(semester)
+        for i in range(len(courseid)):
+            #print(str(courseid[i]), str(courseclass[i]), str(semester[i]), str(account))
+            #print(collect_coursetime)
+            #print(collect_location)
+            classroom(str(courseid[i]), str(courseclass[i]), str(semester[i]), str(account))
         print(collect_coursetime)
         print(collect_location)
         
@@ -159,4 +165,4 @@ def check_semester():
         section = 2
     return str(year_ROC) + "-" + str(section)
 
-#collect_moreinfo('b08501012')
+#collect_moreinfo('b07612041')
