@@ -22,7 +22,7 @@ def analysis(account):
             for i in range(len(data)):
                 for j in range(len(data[i])):
                     data[i][j] = data[i][j].strip()
-                print(data[i]) 
+                #print(data[i]) 
             # data 是一條一條的課程資訊，裏頭會依序放流水號、課號、課程識別碼、班次、課程名稱、學分、教師姓名、備註
             df = pandas.DataFrame({
                 data[0][0]: [data[i][0] for i in range(1,len(data))],
@@ -33,7 +33,7 @@ def analysis(account):
                 data[0][5]: [data[i][5] for i in range(1,len(data))],
                 data[0][6]: [data[i][6] for i in range(1,len(data))],
             })
-            print(df)
+            #print(df)
             #但是我把備註那一欄幹掉了，因為我看大家的課程備註都是空的，加了反而困擾
             tablefile = "./webarchive/" + str(account) + "_courseinfo.csv"
             df.to_csv(tablefile, index=False, encoding='big5')
@@ -57,7 +57,7 @@ def classroom(course_id, courseclass, semester, account):
     record = requests.session()
     visit = record.get(table_url, headers=headers, params=payload)
     visit.encoding="utf-8"
-    print(len(visit.text))
+    #print(len(visit.text))
     soup = BeautifulSoup(visit.text, "lxml")
     bigtable = soup.findAll("table", {
         "cellspacing":0, 
@@ -125,7 +125,7 @@ def collect_moreinfo(account):
             courseclass.append(rows[i][rows[0].index('班次')])
             semester.append(check_semester())
         database.close() #因為等一下 classroom 函數會編輯這個檔案，所以先關掉
-        print(courseid)
+        #print(courseid)
         #print(courseclass)
         #print(semester)
         for i in range(len(courseid)):
@@ -133,8 +133,8 @@ def collect_moreinfo(account):
             #print(collect_coursetime)
             #print(collect_location)
             classroom(str(courseid[i]), str(courseclass[i]), str(semester[i]), str(account))
-        print(collect_coursetime)
-        print(collect_location)
+        #print(collect_coursetime)
+        #print(collect_location)
         
         #database = open(tablefile, 'a', encoding="big5")
         #csvwriter = csv.writer(database)
