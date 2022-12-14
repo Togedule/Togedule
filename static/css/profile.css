@@ -114,7 +114,7 @@ section img#information
     position: absolute;
     color: #ffffff;
     white-space: nowrap;
-    font-size: 4vw;
+    font-size: 3vw;
     z-index: 9;
     text-shadow: 3px 3px #2b105580;
 }

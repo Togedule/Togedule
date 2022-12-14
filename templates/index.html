@@ -2,27 +2,36 @@
 <html>
     <head>
         <title>Home | Togedule </title>
-        <link rel = "stylesheet" type="text/css" href="{{ url_for('static',filename='css/style.css') }}">
+        <link rel = "stylesheet" type="text/css" href="{{ url_for('static',filename='css/index.css') }}">
+        <link rel = "icon" type="image/x-icon" href="{{ url_for('static',filename='assets/favicon.png') }}"></linkrel>
+    
+        <script>
+            src="https://kit.fontawesome.com/64d58efce2.js"
+            crossorigin="anonymous"
+        </script>
     </head>
     <body>
         <header>
             <a href= "#" class="logo">NTU 地圖交友</a>
             <ul>
-                <li><a href="#" >Chat Room</a></li>
-                <li><a href="http://127.0.0.1:5500/profile" >My Profile</a></li>
-                <li><a href="https://my.ntu.edu.tw/?block=5,6" >NTU Website</a></li>
-                <li><a href="http://127.0.0.1:5500/login" >Login</a></li>
-            </ul>     
+                <li><a href="./logout" >Logout</a></li>
+                <li><a href="./profile">My Profile</a></li>
+                <li><a href="./" >Home</a></li>
+                <li><a href="./registration" >Registration</a></li>
+                <li><a href="./login" >Login</a></li>
+            </ul>
         </header>
+
         <section>
-            <img src="static/assets/passboard.png" id = "passboard">
-            <img src="static/assets/earth.png" id = "earth">
-            <img src="static/assets/chair.png" id = "chair">
-            <img src="static/assets/people.png" id = "people">
-            <h2 id="text">Welcome</h2>
+            <img src="{{ url_for('static',filename='assets/passboard.png') }}" id = "passboard">
+            <img src="{{ url_for('static',filename='assets/earth.png') }}" id = "earth">
+            <img src="{{ url_for('static',filename='assets/chair.png') }}" id = "chair">
+            <img src="{{ url_for('static',filename='assets/people.png') }}" id = "people">
+            <img src="{{ url_for('static',filename='assets/information.png') }}" id = "information">
+            <h1 id="text">Welcome</h1>
             <a href="#sec" id="btn">Explore</a>
-            <img src="static/assets/information.png" id = "information">
         </section>
+
         <div class="sec" id="sec">
             <h2>校內學生學習路途的孤獨</h2><br>
             <p>&nbsp&nbsp無論新生舊生在台大，雖然有通識課程，仍不容易深入認識外系同學，且
@@ -32,7 +41,7 @@
             <h3>上課路上交朋友！<br><br> </h3>
             <p> &nbspTogether + Schedule = Togedule<br><br>
                 &nbsp&nbsp希望透過 python 以及相關語言，再優化台大的課程資訊呈現，並將其放置於地圖，正確顯示上課位置與建議路線，協助新生不怕走錯地方。另外，將地圖之結果應用到交友軟體，透過路線與時段統計，配對相似課表的學生，讓他們在轉換教室的途中進行互動，讓大學生活更充實。</p>
-        </div class="sec" id="sec">
+        </div>
 
         <script>
             let passboard = document.getElementById('passboard');
@@ -55,8 +64,8 @@
                 btn.style.marginLeft = value * 2 + 'px';
                 header.style.top = value * 0.6 + 'px';
                 })
-
         </script>
+
             <footer>111-1 Python 程式設計基礎課程 | Group C | 期末專題計畫書 | Togedule</footer>
     </body>
 </html>

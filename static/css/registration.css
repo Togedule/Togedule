@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900display=sawp");
 
-* 
+*
 {
     margin: 0;
     padding: 0;
@@ -11,6 +11,7 @@
 html, body /*這個很重要!! 讓 Mobile 與 PC 都變成 "overflow-x: hidden;" 的關鍵*/
 {
     overflow-x: hidden;
+    height: 100%;
 }
 
 body
@@ -19,7 +20,68 @@ body
     background: linear-gradient(to top,#f13c77, #f5e6ad);
 }
 
-section
+header
+{
+    position: absolute;
+    top: 0;
+    Left: 0;
+    width: 100%;
+    padding: 30px 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 10000;
+}
+
+header .logo
+{
+    color: #b55256;
+    font-weight: 700;
+    text-decoration: none;
+    font-size: 3em;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+header .logo:hover
+{
+    color: #b5525695;
+    transition: 0.5s;
+}
+
+header ul
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+header ul li
+{
+    display: flex;
+    list-style: none;
+    margin-left: 20px;
+    text-align: center;
+}
+
+header ul li a
+{
+    text-decoration:  none;
+    padding:  8px 15px;
+    color: #2b1055;
+    background: #f8f8f8;
+    border-radius: 20px;
+}
+
+header ul li a:hover 
+{
+    background: #2b1055;
+    color: #f8f8f8;
+    transition: 0.5s;
+    box-shadow: 1px 1px 5px #fff inset;
+}
+
+section 
 {
     position: relative;
     width: 100%;
@@ -30,29 +92,35 @@ section
     align-items: center;
 }
 
-#form 
+#form p
 {
-    width: 375px;
-    height: 350px;
+    transform: translateY(-22px);
+    font-weight: 700;
+}
+
+#form {
+    width: 410px;
+    height: 370px;
     color: #BF3060;
     padding: 40px;
     text-align: center;
     border-radius: 30px;
     box-shadow: 10px 10px 20px #2b105560;
-    background-color: linear-gradient(to top,#f13c77, #f5e6ad);
-    transform: translateY(15px);
-}
-
-#form h1
-{
-    font-size: 25px;
-    color: #BF3060;
+    position: relative;
+    z-index: 100;
+    transform: translateY(30px);
 }
 
 #form:hover
 {
     box-shadow: 1px 1px 10px #f8f8f8 inset, 10px 10px 20px #2b105560;
     transition: 1s;
+}
+
+#form h1
+{
+    font-size: 25px;
+    color: #BF3060;
 }
 
 #form input {
@@ -67,7 +135,7 @@ section
 
 #form input[type="text"], #form input[type = "password"] {
     border: 2px solid #BF3060;
-    width: 220px;
+    width: 255px;
 }
 
 #form input[type="text"]::placeholder, #form input[type = "password"]::placeholder {
@@ -125,81 +193,10 @@ section
     color: #551043;
 }
 
-#form p
-{
-    transform: translateY(-20px);
-    font-weight: 700;
-}
-
-
-header
-{
-    position: absolute;
-    top: 0;
-    Left: 0;
-    width: 100%;
-    padding: 30px 100px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    z-index: 10000;
-}
-
-header .logo
-{
-    color: #b55256;
-    font-weight: 700;
-    text-decoration: none;
-    font-size: 3em;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-}
-
-header .logo:hover
-{
-    color: #b5525695;
-    transition: 0.5s;
-}
-
-header ul
-{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-header ul li
-{
-    display: flex;
-    list-style: none;
-    margin-left: 20px;
-    text-align: center;
-}
-
-header ul li a
-{
-    text-decoration:  none;
-    padding:  8px 15px;
-    color: #2b1055;
-    background: #f8f8f8;
-    border-radius: 20px;   
-    position: relative;
-    top: 0;
- 
-}
-
-header ul li a:hover 
-{
-    background: #2b1055;
-    color: #f8f8f8;
-    transition: 0.5s;
-    box-shadow: 1px 1px 5px #fff inset;
-}
-
 footer
 {
     background-color: #f5e6ad80;
     padding: 8px;
     text-align: center;
-    color: #2b1055;
+    color:#2b1055
 }

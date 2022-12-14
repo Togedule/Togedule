@@ -2,6 +2,8 @@
     <head>
         <title>Login | Togedule </title>
         <link rel="stylesheet" type="text/css" href = "{{ url_for('static',filename='css/login.css') }}"/>
+        <link rel = "icon" type="image/x-icon" href="{{ url_for('static',filename='assets/favicon.png') }}"></linkrel>
+
         <script>
             src="https://kit.fontawesome.com/64d58efce2.js"
             crossorigin="anonymous"
@@ -11,49 +13,36 @@
         <header>
             <a href= "#" class="logo">NTU 地圖交友</a>
             <ul>
-                <li><a href="#" >Chat Room</a></li>
-                <li><a href="#" >My Info</a></li>
-                <li><a href="https://my.ntu.edu.tw/?block=5,6" >NTU Website</a></li>
-                <li><a href="http://127.0.0.1:5500/" >Home</a></li>
+                <li><a href="./logout" >Logout</a></li>
+                <li><a href="./profile">My Profile</a></li>
+                <li><a href="./" >Home</a></li>
+                <li><a href="./registration" >Registration</a></li>
+                <li><a href="./login" >Login</a></li>
             </ul>     
         </header>
-        
-        <form name ="form" class="login" method="POST">
-            <h1>帳號登入 Login</h1>
-            <div class="input-field">
-                <label for="username" class="label" >帳號&nbsp:</label>
-                <input name = "username" type = "text" placeholder= "User" />
 
-                <label for="password" class="label" >密碼&nbsp:</label>
-                <input name = "password" type = "password" placeholder = "Password" />
+    <section>
+        <div id="form">
+            <form action=""  name ="form" class="login" method="POST">
+                <h1>帳號登入 Login</h1>
+                <div class="input-field">
+                    <label for="username" class="label" >帳號&nbsp:</label>
+                    <input name = "username" type = "text" placeholder= "User" />
 
-            <input type="submit" value="Login" class="btn" onclick="submit()">
-            <script src="static/js/post_user.js"></script>
-            <py-script src="/run.py"></py-script>
-            </div>
-            
+                    <label for="password" class="label" >密碼&nbsp:</label>
+                    <input name = "password" type = "password" placeholder = "Password" />
 
-            <!--
+                    <input type="submit" value="Login" class="btn" onclick="submit()">
 
-            <p class="social-text">Or sign in with social platforms</p>
-            <div class="social-media">
-                <a href="#" class="social-icon">
-                    <i class="fab fa-facebook-f"></i>
-                </a>
-                <a href="#" class="social-icon">
-                    <i class="fab fa-twitter"></i>
-                </a>
-                <a href="#" class="social-icon">
-                    <i class="fab fa-google"></i>
-                </a>
-                <a href="#" class="social-icon">
-                    <i class="fab fa-linkedin-in"></i>
-                </a>
-            </div>
+                    <p id="alert">{{ alert }}</p>
 
-            -->
-        </form>
+                <script src="static/js/post_user.js"></script>
+                </div>
+            </form>
+        </div>
+    </section>
 
+    <footer>111-1 Python 程式設計基礎課程 | Group C | 期末專題計畫書 | Togedule</footer>
 
     </body>
 </html>
