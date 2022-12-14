@@ -1,0 +1,181 @@
+@import url("https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900display=sawp");
+
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins",sans-serif;
+    scroll-behavior: smooth;
+}
+
+html, body /*這個很重要!! 讓 Mobile 與 PC 都變成 "overflow-x: hidden;" 的關鍵*/
+{
+    overflow-x: hidden;
+}
+
+body
+{
+    min-height: 100vh;
+    background: linear-gradient(to top,#f13c77, #f5e6ad);
+}
+
+header
+{
+    position: absolute;
+    top: 0;
+    Left: 0;
+    width: 100%;
+    padding: 30px 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 10000;
+}
+
+header .logo
+{
+    color: #b55256;
+    font-weight: 700;
+    text-decoration: none;
+    font-size: 3em;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+header .logo:hover
+{
+    color: #b5525695;
+    transition: 0.5s;
+}
+header ul
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+header ul li
+{
+    display: flex;
+    list-style: none;
+    margin-left: 20px;
+    text-align: center;
+}
+header ul li a
+{
+    text-decoration:  none;
+    padding:  8px 15px;
+    color: #2b1055;
+    background: #f8f8f8;
+    border-radius: 20px;
+}
+header ul li a:hover 
+{
+    background: #2b1055;
+    color: #f8f8f8;
+    transition: 0.5s;
+    box-shadow: 1px 1px 5px #fff inset;
+}
+section
+{
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    padding: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+section img
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    pointer-events: none;
+}
+
+section img#information
+{
+    z-index: 10;
+}
+
+#text
+{
+    position: absolute;
+    color: #ffffff;
+    white-space: nowrap;
+    font-size: 4vw;
+    z-index: 9;
+    text-shadow: 3px 3px #2b105580;
+}
+#text:hover
+{
+    color: #b55256;
+    transition: 1s;
+}
+#btn
+{
+    text-decoration: none;
+    display: inline-block;
+    padding: 8px 30px;
+    border-radius: 40px;
+    background: #fff;
+    color: #2b1055;
+    font-size: 1.5em;
+    z-index: 9;
+    transform: translateY(100px);
+    box-shadow: 10px 10px 5px #2b105580 ;
+}
+#btn:hover
+{
+    color: #fff;
+    background: #2b1055;
+    transition: 1s;
+    box-shadow: 1px 1px 5px #fff inset;
+}
+
+.sec
+{
+    position: relative;
+    padding: 100px;
+    z-index: 10;
+    text-shadow: 3px 3px #2b105580;
+}
+
+.sec h2
+{
+    font-size: 2.5em;
+    margin-bottom: 10px;
+    color: #fff;
+    z-index: 10;
+    text-shadow: 3px 3px #2b105580;
+}
+
+.sec h3
+{
+    font-size: 2.5em;
+    margin-bottom: 10px;
+    color: #fff;
+    z-index: 10;
+    text-shadow: 3px 3px #2b105580;
+}
+
+.sec p
+{
+    font-size: 1em;
+    color: #fff;
+    z-index: 10;
+    text-shadow: 2px 1.5px 3px #000000;
+}
+
+footer
+{
+    background-color: #f5e6ad80;
+    padding: 8px;
+    text-align: center;
+    color:#2b1055
+}
