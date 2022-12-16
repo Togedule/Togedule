@@ -1,5 +1,6 @@
-from flask import (Flask, request, render_template, redirect , url_for , session, make_response)
+from flask import (Flask, request, render_template, redirect , url_for , session, flash)
 from request_ntu import logincheck
+from datetime import timedelta
 
 class User:
     def __init__(self, username, password):
@@ -10,6 +11,8 @@ class User:
         return self.username, self.password
 
 app = Flask(__name__)
+app.config['SECRET_KEY'] = 'BF5lRODqNxfQ*o*#kU(r#9uMX#xHseWNISl7W1!D' # 設定flask的密鑰secret_key。要先替flask設定好secret_key，Flask-Login 才能運作。
+app.config['PERMANENT_SESSION_LIFETIME'] =  timedelta(minutes=60)
 
 @app.route('/',methods=['GET'])
 def index():
@@ -35,14 +38,16 @@ def login():
                 session['username'] = username
                 session['password'] = password
                 session['realname'] = realname
+                session.permanent = True #設定section有Timeout
 
                 return redirect(url_for('profile', realname = realname))
 
-        except False:
+        except logincheck(username,password) == False:
                 alert = '帳密輸入錯誤 請重新嘗試'
                 return redirect(url_for('login'), alert = alert)
-
+        
         return redirect(url_for('login'))
+
     return render_template('login.html')
 
 
@@ -62,6 +67,7 @@ def registration():
                 session['username'] = username
                 session['password'] = password
                 session['realname'] = realname
+                session.permanent = True #設定section有Timeout
 
                 return redirect(url_for('profile', realname = realname))
 
@@ -74,7 +80,7 @@ def registration():
 @app.route('/<realname>',methods=['GET','POST'])
 def profile(realname):
     realname = session.get('realname')
-    alert = 'Please login 請登入帳號'
+    alert = '請登入帳號：Please login.'
 
     if request.method == 'GET':  # 輸入網址會進到這裡
         if realname :
@@ -87,7 +93,6 @@ def logout():
     return render_template("index.html")
 
 if __name__ == "__main__":
-    app.secret_key = "This is a secret_key"
     app.run(host="127.0.0.1",port=5500,debug=True)
 
 #python index.py
