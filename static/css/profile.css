@@ -82,6 +82,11 @@ header ul li a:hover
     box-shadow: 1px 1px 5px #fff inset;
 }
 
+#login
+{
+    background: #f13c7780;
+}
+
 section 
 {
     position: relative;

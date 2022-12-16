@@ -69,9 +69,9 @@ def registration():
                 session['realname'] = realname
                 session.permanent = True #設定section有Timeout
 
-                return redirect(url_for('profile', realname = realname))
+                return redirect(url_for('profile'))
 
-        except IndexError:
+        except TypeError:
                 return redirect(url_for('registration'))
 
         return redirect(url_for('registration'))
