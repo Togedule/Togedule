@@ -2,8 +2,8 @@
 <html>
     <head>
         <title>Profile | Togedule </title>
-        <link rel = "stylesheet" type="text/css" href="{{ url_for('static',filename='css/profile.css') }}">
-        <link rel = "icon" type="image/x-icon" href="{{ url_for('static',filename='assets/favicon.png') }}"></linkrel>
+        <link rel = "stylesheet" type="text/css" href="{{ url_for('static',filename='css/profile.css') }}"></link>
+        <link rel = "icon" type="image/x-icon" href="{{ url_for('static',filename='assets/favicon.png') }}"></link>
 
     </head>
     <body>
@@ -14,7 +14,7 @@
                 <li><a href="./profile">My Profile</a></li>
                 <li><a href="./" >Home</a></li>
                 <li><a href="./registration" >Registration</a></li>
-                <li><a href="./login" >Login</a></li>
+                <li><a href="./login" id="login">Login</a></li>
             </ul>
         </header>
 
@@ -25,16 +25,37 @@
             <img src="{{ url_for('static',filename='assets/people.png') }}" id = "people">
             <img src="{{ url_for('static',filename='assets/information.png') }}" id = "information">
             <h1 id="text">Welcome, {{ realname }}</h1>
+            <!-- <a href="#school_timetable" id="btn">課表</a> -->
+            <a href="#table" id="btn">課表</a>
             <a href="#map" id="btn">上課地圖</a>
         </section>
         
+        <div class="school_timetable" id="school_timetable">
+            
+            <img src="{{ url_for('static',filename='assets/table.png') }}" id = "table">
+
+                <div>
+                    {% include '你要的網頁.html' ignore missing %}
+                </div>    
+
+        </div>
+
+
         <div class="google_map" id="google_map">
             <iframe id="map" src="https://www.google.com/maps/embed?pb=!1m30!1m8!1m3!1d3615.5093203694614!2d121.5353745!3d25.0167839!3m2!1i1024!2i768!4f13.1!4m19!3e2!4m5!1s0x3442aa20ad90c4ff%3A0xcd5569506bc9fa6f!2z5LqU6Jmf6aSoIDEwNuWPsOWMl-W4guWkp-WuieWNgA!3m2!1d25.0165243!2d121.53765059999999!4m5!1s0x3442a989d9909417%3A0x13a8ef0043681664!2zMTA25Y-w5YyX5biC5aSn5a6J5Y2A576F5pav56aP6Lev5Zub5q61MeiZn-Wci-eri-iHuueBo-Wkp-WtuOWNmumbheaVmeWtuOmkqA!3m2!1d25.0188448!2d121.53670009999999!4m5!1s0x3442aa20eccd32bb%3A0xe55685f7dbbfecd9!2z5rWp54Ca5qiTIDEwNuWPsOWMl-W4guWkp-WuieWNgOe-heaWr-emj-i3r-Wbm-autTHomZ8!3m2!1d25.0147858!2d121.5384268!5e0!3m2!1szh-TW!2stw!4v1670811567376!5m2!1szh-TW!2stw" width="600" height="450" style="border:0;" allowfullscreen="1" loading="eager" referrerpolicy="no-referrer-when-downgrade"></iframe>
             <!--請調整  loading="eager"  -->
         </div>
 
-
         <style>
+            #table
+            {
+                overflow: hidden; 
+                position: relative;
+                display:block;
+                margin:auto;
+                transform: translateY(20%);
+            }
+
             #google_map
             {
                 display: block; 
@@ -58,29 +79,6 @@
                 box-shadow: 10px 10px 5px #2b105580;
             }
         </style>
-
-        <script>
-            let passboard = document.getElementById('passboard');
-            let earth = document.getElementById('earth');
-            let chair = document.getElementById('chair');
-            let people = document.getElementById('people');
-            let text = document.getElementById('text');
-            let btn = document.getElementById('btn');
-            let information = document.getElementById('information');
-            let header = document.querySelector('header');
-
-            window.addEventListener("scroll",function(){
-                let value = window.scrollY;
-                passboard.style.left = value * -0.1 + 'px';
-                earth.style.top = value * 0.05 + 'px';
-                chair.style.left = value * 0.05 + 'px';
-                people.style.left = value * 0.05 + 'px';
-                information.style.left = value * -0.05 + 'px';
-                text.style.marginRight = value * 2 + 'px';
-                btn.style.marginLeft = value * 2 + 'px';
-                header.style.top = value * 0.6 + 'px';
-                })
-        </script>
 
         <footer>111-1 Python 程式設計基礎課程 | Group C | 期末專題計畫書 | Togedule</footer>
     </body>

@@ -82,6 +82,11 @@ header ul li a:hover
     box-shadow: 1px 1px 5px #fff inset;
 }
 
+#login
+{
+    background: #f13c7780;
+}
+
 section 
 {
     position: relative;
@@ -138,6 +143,7 @@ section img#information
     z-index: 9;
     transform: translateY(100px);
     box-shadow: 10px 10px 5px #2b105580 ;
+    margin-left: 20px;
 }
 
 #btn:hover

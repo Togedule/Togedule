@@ -18,7 +18,7 @@
                 <li><a href="./profile">My Profile</a></li>
                 <li><a href="./" >Home</a></li>
                 <li><a href="./registration" >Registration</a></li>
-                <li><a href="./login" >Login</a></li>
+                <li><a href="./login" id="login">Login</a></li>
             </ul>     
         </header>
 
@@ -36,9 +36,7 @@
 
                             <input type="submit" value="Login" class="btn" onclick="submit()">
 
-                            <p>&nbsp&nbsp首次註冊需花費10~20秒蒐集遠端資料<br>請耐心等候<br><br></p>
-
-                        <script src="static/js/post_user.js"></script>
+                            <p id="alert">{{ alert }}</p>
                         </div>
                     </form>
                 </div>

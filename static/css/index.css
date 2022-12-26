@@ -76,6 +76,12 @@ header ul li a:hover
     transition: 0.5s;
     box-shadow: 1px 1px 5px #fff inset;
 }
+
+#login
+{
+    background: #f13c7780;
+}
+
 section
 {
     position: relative;
